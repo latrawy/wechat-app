@@ -10,6 +10,10 @@ Page({
             ? true 
             : false     // 是否登录，根据后台返回的skey判断
     },
+    updateData: function() {
+        app.showInfo('登录成功！！！');
+        this.getUserInfo();
+    },
 
     // 检查本地 storage 中是否有skey登录态标识
     checkLoginStatus: function() {
@@ -47,11 +51,9 @@ Page({
      */
     doLogin: function() {
         let that = this;
-        wx.showLoading({
-            title: '登录中...',
-            mask: true
-        });
-        app.doLogin(that.getUserInfo);
+        wx.navigateTo({
+            url: '../index/index'
+        })
     },
 
     /**

@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/books/books",
     "pages/my/my",
     "pages/myBooks/myBooks",
     "pages/detail/detail",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

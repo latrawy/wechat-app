@@ -1,1 +1,10 @@
-<button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">授权登陆</button>
+<view class="app-title">欢迎来到喵某的小程序</view>
+<view class="app-title-little">分享与被分享</view>
+<view class="button-group">
+    <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" type="primary" size="default">
+        授权登陆
+    </button>
+    <button bindtap="cancelGotUserInfo" type="warn" plain="true">
+        取消
+    </button>
+</view>

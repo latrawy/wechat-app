@@ -13,10 +13,11 @@ App({
     checkLoginStatus: function () {
         let that = this;
         let loginFlag = wx.getStorageSync('loginFlag');
+        const loginNavigateUrl = '/pages/index/index';
         if (loginFlag) {
             // 检查 session_key 是否过期
             wx.checkSession({
-                // session_key 有效(为过期)
+                // session_key 有效
                 success: function () {
                     // 直接从Storage中获取用户信息
                     let userStorageInfo = wx.getStorageSync('userInfo');
@@ -25,22 +26,24 @@ App({
                     } else {
                         that.showInfo('缓存信息缺失');
                         console.error('登录成功后将用户信息存在Storage的userStorageInfo字段中，该字段丢失');
+                        wx.redirectTo({
+                            url: loginNavigateUrl,
+                        });
                     }
 
                 },
                 // session_key 过期
                 fail: function () {
                     // session_key过期
-                    wx.navigateTo({
-                      url: './pages/index/index',
+                    wx.redirectTo({
+                      url: loginNavigateUrl,
                     })
                 }
             });
         } else {
             // 无登录态
-            // that.doLogin();
-            wx.navigateTo({
-              url: './pages/index/index',
+            wx.redirectTo({
+              url: loginNavigateUrl,
             })
         }
     },
